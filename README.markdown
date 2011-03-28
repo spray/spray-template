@@ -1,28 +1,29 @@
 # Spray Template Project 
 
-1. Clone this repository:
+1. Git-clone this repository. Alternatively, download and extract a [tarball](http://github.com/spray/spray-template/tarball/master) or [zip](http://github.com/sirthias/spray-template/zipball/master).
 
-        git clone git://github.com/sirthias/spray-template.git my-project
+        $ git clone git://github.com/spray/spray-template.git my-project
 
 2. Change directory into your clone:
 
-        cd my-project
+        $ cd my-project
 
-3. Launch [SBT](http://code.google.com/p/simple-build-tool) (note that you will need SBT 0.7.5.RC0 or 0.7.5.RC1 !)
+3. Launch [SBT](http://code.google.com/p/simple-build-tool) (note that you will need SBT 0.7.5.RC0 or 0.7.5.RC1 !):
 
-        ./sbt
+        $ sbt
 
-4. At SBT prompt, fetch the dependencies. Do this the first time and also whenever you change the project definition.
+4. Fetch the dependencies:
 
-        update
+        > update
 
-5. Run Jetty
+5. Start Jetty, enabling continuous compilation and reloading:
 
-        jetty-run
+        > jetty-run
+        > ~prepare-webapp
 
-6. Go to http://localhost:8080/.
+6. Browse to http://localhost:8080/
 
-7. Learn more at http://www.spray.cc/.
+7. Learn more at http://www.spray.cc/
 
-8. Happy hacking!
+8. Start hacking on `src/main/scala/com/example/HelloServiceBuilder.scala`
 

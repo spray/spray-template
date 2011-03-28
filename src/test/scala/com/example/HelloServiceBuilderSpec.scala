@@ -16,7 +16,7 @@ class HelloServiceBuilderSpec extends Specification with SprayTest with HelloSer
       }.response.content.as[String] mustEqual Right("<h1>Say hello to Spray</h1>")
     }
     "leave GET requests to other paths unhandled" in {
-      testService(HttpRequest(GET, "/pipapo")) {
+      testService(HttpRequest(GET, "/kermit")) {
         helloService
       }.handled must beFalse
     }
