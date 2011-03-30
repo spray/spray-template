@@ -1,4 +1,4 @@
-# Spray Template Project 
+## spray Template Project 
 
 1. Git-clone this repository. Alternatively, download and extract a [tarball](http://github.com/spray/spray-template/tarball/master) or [zip](http://github.com/sirthias/spray-template/zipball/master).
 
