@@ -17,14 +17,14 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // Therefore, if repositories are defined, this must happen as def, not as val.
   // -------------------------------------------------------------------------------------------------------------------
   import Repositories._
-  // e.g. val akkaModuleConfig = ModuleConfiguration("se.scalablesolutions.akka", akkaRepo)
+  val sprayModuleConfig = ModuleConfiguration("cc.spray", ScalaToolsSnapshots)
 
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
   // -------------------------------------------------------------------------------------------------------------------
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
   val akkaHttp            = akkaModule("http")  withSources()
-  val spray               = "cc.spray" %% "spray" % "0.5.0" % "compile" withSources()
+  val spray               = "cc.spray" %% "spray" % "0.6.0-SNAPSHOT" % "compile" withSources()
 
   val JETTY_VERSION = "8.0.0.M2"
   val specs       = "org.scala-tools.testing" %% "specs" % "1.6.7" % "test"
