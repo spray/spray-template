@@ -13,7 +13,7 @@ class HelloServiceBuilderSpec extends Specification with SprayTest with HelloSer
     "return a greeting for GET requests to the root path" in {
       testService(HttpRequest(GET, "/")) {
         helloService
-      }.response.content.as[String] mustEqual Right("<h1>Say hello to Spray</h1>")
+      }.response.content.as[String] mustEqual Right("Say hello to Spray!")
     }
     "leave GET requests to other paths unhandled" in {
       testService(HttpRequest(GET, "/kermit")) {
