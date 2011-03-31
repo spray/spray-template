@@ -6,7 +6,7 @@ trait HelloServiceBuilder extends ServiceBuilder {
   
   val helloService = {
     path("") {
-      get { _.complete(<h1>Say hello to Spray</h1>) }
+      get { _.complete("Say hello to Spray!") }
     }
   }
   
