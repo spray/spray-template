@@ -24,7 +24,7 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // -------------------------------------------------------------------------------------------------------------------
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
   val akkaHttp            = akkaModule("http")  withSources()
-  val spray               = "cc.spray" %% "spray" % "0.1.0-SNAPSHOT" % "compile" withSources()
+  val spray               = "cc.spray" %% "spray" % "0.5.0" % "compile" withSources()
 
   val JETTY_VERSION = "8.0.0.M2"
   val specs       = "org.scala-tools.testing" %% "specs" % "1.6.7" % "test"
