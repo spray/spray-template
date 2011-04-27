@@ -7,7 +7,7 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // All repositories *must* go here! See ModuleConfigurations below.
   // -------------------------------------------------------------------------------------------------------------------
   object Repositories {
-    // e.g. val akkaRepo = MavenRepository("Akka Repository", "http://akka.io/repository")
+    // e.g. val AkkaRepo = MavenRepository("Akka Repository", "http://akka.io/repository")
   }
   
   // -------------------------------------------------------------------------------------------------------------------
@@ -17,16 +17,16 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // Therefore, if repositories are defined, this must happen as def, not as val.
   // -------------------------------------------------------------------------------------------------------------------
   import Repositories._
-  val sprayModuleConfig = ModuleConfiguration("cc.spray", ScalaToolsSnapshots)
+  val sprayModuleConfig     = ModuleConfiguration("cc.spray", ScalaToolsSnapshots)
+  val parboiledModuleConfig = ModuleConfiguration("org.parboiled", ScalaToolsSnapshots)
 
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
   // -------------------------------------------------------------------------------------------------------------------
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
-  val akkaHttp            = akkaModule("http")  withSources()
   val spray               = "cc.spray" %% "spray" % "0.6.0-SNAPSHOT" % "compile" withSources()
 
-  val JETTY_VERSION = "8.0.0.M2"
+  val JETTY_VERSION = "8.0.0.M2" // e.g. "7.2.0.v20101020" for testing the Jetty7ConnectorServlet 
   val specs       = "org.scala-tools.testing" %% "specs" % "1.6.7" % "test"
   val jettyServer = "org.eclipse.jetty" % "jetty-server" % JETTY_VERSION % "test"
   val jettyWebApp = "org.eclipse.jetty" % "jetty-webapp" % JETTY_VERSION % "test"
