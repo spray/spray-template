@@ -22,9 +22,17 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
   // -------------------------------------------------------------------------------------------------------------------
+  
+  // these are the ones that are absolutely required
+  val sprayHttp           = "cc.spray" %% "spray-http" % "0.7.0-SNAPSHOT" % "compile" withSources()
+  val sprayServer         = "cc.spray" %% "spray-server" % "0.7.0-SNAPSHOT" % "compile" withSources()
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
-  val spray               = "cc.spray" %% "spray" % "0.7.0-SNAPSHOT" % "compile" withSources()
+  
+  // slf4j is not required but a good option for logging
+  val akkaSlf4j = akkaModule("slf4j") withSources()
+  val logback   = "ch.qos.logback" % "logback-classic" % "0.9.28" % "runtime" // a good logging backend for slf4j
 
+  // for testing
   val JETTY_VERSION = "8.0.0.M2" // e.g. "7.2.0.v20101020" for testing the Jetty7ConnectorServlet 
   val specs       = "org.scala-tools.testing" %% "specs" % "1.6.8" % "test"
   val jettyServer = "org.eclipse.jetty" % "jetty-server" % JETTY_VERSION % "test"
