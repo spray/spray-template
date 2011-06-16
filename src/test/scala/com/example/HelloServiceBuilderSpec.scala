@@ -5,7 +5,7 @@ import cc.spray._
 import test._
 import http._
 import HttpMethods._
-import HttpStatusCodes._
+import StatusCodes._
 
 class HelloServiceBuilderSpec extends Specification with SprayTest with HelloServiceBuilder {
   
@@ -23,7 +23,7 @@ class HelloServiceBuilderSpec extends Specification with SprayTest with HelloSer
     "return a MethodNotAllowed error for POST requests to the root path" in {
       testService(HttpRequest(POST, "/")) {
         helloService
-      }.response mustEqual failure(MethodNotAllowed, "HTTP method not allowed, supported methods: GET")
+      }.response mustEqual HttpResponse(MethodNotAllowed, "HTTP method not allowed, supported methods: GET")
     }
   }
   
