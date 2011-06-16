@@ -2,7 +2,7 @@ package com.example
 
 import cc.spray._
 
-trait HelloServiceBuilder extends ServiceBuilder {
+trait HelloService extends Directives {
   
   val helloService = {
     path("") {

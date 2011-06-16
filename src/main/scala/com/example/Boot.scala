@@ -8,7 +8,7 @@ import utils.ActorHelpers._
 
 class Boot {
   
-  val mainModule = new HelloServiceBuilder {
+  val mainModule = new HelloService {
     // bake your module cake here
   }
   
