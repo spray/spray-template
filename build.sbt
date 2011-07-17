@@ -40,3 +40,5 @@ seq(webSettings :_*)
 // We are using the 0.7.0 snapshot of Spray, so we need to add this resolver.
 resolvers += ScalaToolsSnapshots
 
+resolvers += "Akka Repository" at "http://akka.io/repository",
+
