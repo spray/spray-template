@@ -8,7 +8,7 @@
 
         $ cd my-project
 
-3. Launch [SBT](http://code.google.com/p/simple-build-tool) (note that you will need SBT 0.7.5):
+3. Launch [SBT](http://code.google.com/p/simple-build-tool) (note that you will need SBT 0.10.1):
 
         $ sbt
 
