@@ -18,7 +18,6 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // -------------------------------------------------------------------------------------------------------------------
   import Repositories._
   val sprayModuleConfig     = ModuleConfiguration("cc.spray", ScalaToolsSnapshots)
-  val sprayJsonModuleConfig = ModuleConfiguration("cc.spray.json", ScalaToolsSnapshots)
 
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
@@ -35,7 +34,9 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
 
   // for testing
   val JETTY_VERSION = "8.0.0.M3" // e.g. "7.2.0.v20101020" for testing the Jetty7ConnectorServlet
-  val specs       = "org.scala-tools.testing" %% "specs" % "1.6.8" % "test"
+  val specs2 = "org.specs2" %% "specs2" % "1.5" % "test" withSources()
   val jettyServer = "org.eclipse.jetty" % "jetty-server" % JETTY_VERSION % "test"
   val jettyWebApp = "org.eclipse.jetty" % "jetty-webapp" % JETTY_VERSION % "test"
+
+  override def testFrameworks = super.testFrameworks ++ Seq(new TestFramework("org.specs2.runner.SpecsFramework"))
 }
