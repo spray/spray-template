@@ -8,7 +8,7 @@
 
         $ cd my-project
 
-3. Launch [SBT](http://code.google.com/p/simple-build-tool) (note that you will need SBT 0.7.7):
+3. Launch [SBT](http://code.google.com/p/simple-build-tool) (SBT 0.7.7, if you'd like to use 0.10.x use the `sbt-0.10` branch of this repository):
 
         $ sbt
 
@@ -16,14 +16,18 @@
 
         > update
 
-5. Start Jetty, enabling continuous compilation and reloading:
+5. Compile everything and run all tests:
+
+        > test
+
+6. Start Jetty and enable continuous compilation and reloading:
 
         > jetty-run
         > ~prepare-webapp
 
-6. Browse to http://localhost:8080/
+7. Browse to http://localhost:8080/
 
-7. Learn more at http://www.spray.cc/
+8. Learn more at http://www.spray.cc/
 
-8. Start hacking on `src/main/scala/com/example/HelloServiceBuilder.scala`
+9. Start hacking on `src/main/scala/com/example/HelloService.scala`
 
