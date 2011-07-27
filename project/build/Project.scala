@@ -7,7 +7,7 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // All repositories *must* go here! See ModuleConfigurations below.
   // -------------------------------------------------------------------------------------------------------------------
   object Repositories {
-    // e.g. val akkaRepo = MavenRepository("Akka Repository", "http://akka.io/repository")
+    // e.g. val AkkaRepo = MavenRepository("Akka Repository", "http://akka.io/repository")
   }
   
   // -------------------------------------------------------------------------------------------------------------------
@@ -17,17 +17,26 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // Therefore, if repositories are defined, this must happen as def, not as val.
   // -------------------------------------------------------------------------------------------------------------------
   import Repositories._
-  // e.g. val akkaModuleConfig = ModuleConfiguration("se.scalablesolutions.akka", akkaRepo)
+  // val sprayModuleConfig = ModuleConfiguration("cc.spray", ScalaToolsSnapshots) // required for spray snapshots
 
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
   // -------------------------------------------------------------------------------------------------------------------
+  
+  // these are the ones that are absolutely required
+  val sprayHttp           = "cc.spray" %% "spray-http" % "0.7.0" % "compile" withSources()
+  val sprayServer         = "cc.spray" %% "spray-server" % "0.7.0" % "compile" withSources()
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
-  val akkaHttp            = akkaModule("http")  withSources()
-  val spray               = "cc.spray" %% "spray" % "0.5.0" % "compile" withSources()
+  
+  // slf4j is not required but a good option for logging
+  val akkaSlf4j = akkaModule("slf4j") withSources()
+  val logback   = "ch.qos.logback" % "logback-classic" % "0.9.29" % "runtime" // a good logging backend for slf4j
 
-  val JETTY_VERSION = "8.0.0.M2"
-  val specs       = "org.scala-tools.testing" %% "specs" % "1.6.7" % "test"
+  // for testing
+  val JETTY_VERSION = "8.0.0.M3" // e.g. "7.2.0.v20101020" for testing the Jetty7ConnectorServlet
+  val specs2 = "org.specs2" %% "specs2" % "1.5" % "test" withSources()
   val jettyServer = "org.eclipse.jetty" % "jetty-server" % JETTY_VERSION % "test"
   val jettyWebApp = "org.eclipse.jetty" % "jetty-webapp" % JETTY_VERSION % "test"
+
+  override def testFrameworks = super.testFrameworks ++ Seq(new TestFramework("org.specs2.runner.SpecsFramework"))
 }

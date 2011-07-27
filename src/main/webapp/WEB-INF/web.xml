@@ -6,16 +6,19 @@
 <web-app>
 
     <listener>
-        <listener-class>akka.servlet.Initializer</listener-class>
+        <listener-class>cc.spray.connectors.Initializer</listener-class>
     </listener>
 
     <servlet>
-        <servlet-name>AkkaMistServlet</servlet-name>
-        <servlet-class>akka.http.AkkaMistServlet</servlet-class>
+        <servlet-name>SprayConnectorServlet</servlet-name>
+        <servlet-class>cc.spray.connectors.Servlet30ConnectorServlet</servlet-class>
+        <!-- <servlet-class>cc.spray.connectors.Jetty7ConnectorServlet</servlet-class> -->
+        <!-- <servlet-class>cc.spray.connectors.Tomcat6ConnectorServlet</servlet-class> -->
+        <async-supported>true</async-supported>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AkkaMistServlet</servlet-name>
+        <servlet-name>SprayConnectorServlet</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
