@@ -17,15 +17,15 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
   // Therefore, if repositories are defined, this must happen as def, not as val.
   // -------------------------------------------------------------------------------------------------------------------
   import Repositories._
-  val sprayModuleConfig     = ModuleConfiguration("cc.spray", ScalaToolsSnapshots)
+  // val sprayModuleConfig = ModuleConfiguration("cc.spray", ScalaToolsSnapshots) // required for spray snapshots
 
   // -------------------------------------------------------------------------------------------------------------------
   // Dependencies
   // -------------------------------------------------------------------------------------------------------------------
   
   // these are the ones that are absolutely required
-  val sprayHttp           = "cc.spray" %% "spray-http" % "0.7.0-SNAPSHOT" % "compile" withSources()
-  val sprayServer         = "cc.spray" %% "spray-server" % "0.7.0-SNAPSHOT" % "compile" withSources()
+  val sprayHttp           = "cc.spray" %% "spray-http" % "0.7.0" % "compile" withSources()
+  val sprayServer         = "cc.spray" %% "spray-server" % "0.7.0" % "compile" withSources()
   override val akkaActor  = akkaModule("actor") withSources() // it's good to always have the sources around
   
   // slf4j is not required but a good option for logging
