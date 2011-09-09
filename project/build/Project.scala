@@ -34,7 +34,7 @@ class Project(info: ProjectInfo) extends DefaultWebProject(info) with AkkaProjec
 
   // for testing
   val JETTY_VERSION = "8.0.0.M3" // e.g. "7.2.0.v20101020" for testing the Jetty7ConnectorServlet
-  val specs2 = "org.specs2" %% "specs2" % "1.5" % "test" withSources()
+  val specs2 = "org.specs2" %% "specs2" % "1.6.1" % "test" withSources()
   val jettyServer = "org.eclipse.jetty" % "jetty-server" % JETTY_VERSION % "test"
   val jettyWebApp = "org.eclipse.jetty" % "jetty-webapp" % JETTY_VERSION % "test"
 
