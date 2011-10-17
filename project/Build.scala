@@ -13,12 +13,10 @@ object Build extends sbt.Build {
         Compile.akkaActor,
         Compile.sprayServer,
         Test.specs2,
-        Test.jettyServer,
-        Test.jettyWebApp,
-        Test.jettyPlugin,
-        Runtime.akkaSlf4j,
-        Runtime.slf4j,
-        Runtime.logback
+        Container.jettyWebApp,
+        Container.akkaSlf4j,
+        Container.slf4j,
+        Container.logback
       )
     )
   )
@@ -54,14 +52,12 @@ object Dependencies {
 
   object Test {
     val specs2      = "org.specs2"                %% "specs2"          % V.specs2  % "test"
-    val jettyServer = "org.eclipse.jetty"         %  "jetty-server"    % V.jetty   % "test"
-    val jettyWebApp = "org.eclipse.jetty"         %  "jetty-webapp"    % V.jetty   % "test"
-    val jettyPlugin = "org.eclipse.jetty"         %  "jetty-webapp"    % V.jetty   % "jetty" // web-plugin
   }
 
-  object Runtime {
-    val akkaSlf4j   = "se.scalablesolutions.akka" %  "akka-slf4j"      % V.akka    % "runtime"
-    val slf4j       = "org.slf4j"                 %  "slf4j-api"       % V.slf4j   % "runtime"
-    val logback     = "ch.qos.logback"            %  "logback-classic" % V.logback % "runtime"
+  object Container {
+    val jettyWebApp = "org.eclipse.jetty"         %  "jetty-webapp"    % V.jetty   % "container"
+    val akkaSlf4j   = "se.scalablesolutions.akka" %  "akka-slf4j"      % V.akka
+    val slf4j       = "org.slf4j"                 %  "slf4j-api"       % V.slf4j
+    val logback     = "ch.qos.logback"            %  "logback-classic" % V.logback
   }
 }
