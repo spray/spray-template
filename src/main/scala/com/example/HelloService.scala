@@ -6,7 +6,7 @@ trait HelloService extends Directives {
   
   val helloService = {
     path("") {
-      get { _.complete("Say hello to Spray!") }
+      get { _.complete("Say hello to y Spray!") }
     }
   }
   

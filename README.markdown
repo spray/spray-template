@@ -1,6 +1,11 @@
-## _spray_ Template Project 
+## _spray_ Template Project
 
-1. Git-clone this repository. Alternatively, download and extract a [tarball] or [zip].
+This projects provides a starting point for your own _spray_ endeavors.
+The branch you are currently looking at is targeted at **_spray_ 0.8.0-RC1**.
+
+Boot strap your application by following these steps:
+
+1. Git-clone this repository.
 
         $ git clone git://github.com/spray/spray-template.git my-project
 
@@ -8,36 +13,30 @@
 
         $ cd my-project
 
-3. Launch [SBT] (SBT 0.7.7, if you'd like to use 0.10.x use the `sbt-0.10` branch of this repository):
+3. Launch [SBT] (SBT 0.11):
 
         $ sbt
 
-4. Fetch the dependencies:
-
-        > update
-
-5. Compile everything and run all tests:
+4. Compile everything and run all tests:
 
         > test
 
-6. Start Jetty and enable continuous compilation and reloading:
+5. Start Jetty:
 
-        > jetty-run
-        > ~prepare-webapp
+        > container:start
 
-7. Browse to http://localhost:8080/
+6. Browse to http://localhost:8080/
 
-8. Learn more at http://www.spray.cc/
+7. Learn more at http://www.spray.cc/
 
-9. Start hacking on `src/main/scala/com/example/HelloService.scala`
+8. Start hacking on `src/main/scala/com/example/HelloService.scala`
 
 
-Apart from the Scala sources in the `src/main/scala` tree the following non-Scala configuration files are important for
-SBTs "jetty-run mode":
+Apart from the Scala sources in the `src/main/scala` tree the following non-Scala configuration files are important:
 
 * `src/main/resources/akka.conf`, the combined Akka and _spray_ configuration file 
 * `src/main/resources/logback.xml`, the config file for the [SLF4J] logging backend "logback" (not required but recommended)
-* `src/main/webapp/WEB-INF/web.xml`, the config file for the sbt-internal Jetty instance
+* `src/main/webapp/WEB-INF/web.xml`, the config file for the Jetty instance used by SBTs web plugin
 
 If you'd like to deploy your _spray_ application in Akkas microkernel you can use the config files in the `config`
 directory as a starting point, namely:
@@ -46,7 +45,5 @@ directory as a starting point, namely:
 * `config/microkernel-server.xml`, the config file for the Akka microkernel-internal Jetty instance  
 
 
-[tarball]: http://github.com/spray/spray-template/tarball/master
-[zip]: http://github.com/sirthias/spray-template/zipball/master
-[SBT]: http://code.google.com/p/simple-build-tool
+[SBT]: https://github.com/harrah/xsbt/wiki
 [SLF4J]: http://www.slf4j.org
