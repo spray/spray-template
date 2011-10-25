@@ -23,7 +23,7 @@ object Build extends sbt.Build {
 
   lazy val basicSettings = Defaults.defaultSettings ++ Seq(
     organization  := "com.example",
-    version       := "0.8.0-RC1",
+    version       := "0.8.0-RC2",
     scalaVersion  := "2.9.1",
     scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
     resolvers     ++= Dependencies.resolutionRepos
@@ -38,7 +38,7 @@ object Dependencies {
 
   object V {
     val akka    = "1.2"
-    val spray   = "0.8.0-RC1"
+    val spray   = "0.8.0-RC2"
     val specs2  = "1.6.1"
     val jetty   = "8.0.3.v20111011"
     val slf4j   = "1.6.1"
