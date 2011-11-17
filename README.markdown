@@ -1,7 +1,7 @@
 ## _spray_ Template Project
 
-This projects provides a starting point for your own _spray_ endeavors.
-The branch you are currently looking at is targeted at **_spray_ 0.8.0-RC2**.
+This projects provides a starting point for your own _spray-server_ endeavors.
+The branch you are currently looking at is targeted at **_spray_ 0.8.0**.
 
 Boot strap your application by following these steps:
 
@@ -13,7 +13,7 @@ Boot strap your application by following these steps:
 
         $ cd my-project
 
-3. Launch [SBT] (SBT 0.11.0):
+3. Launch [SBT] (SBT 0.11):
 
         $ sbt
 
