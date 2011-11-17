@@ -5,10 +5,14 @@ import com.github.siasia.WebPlugin
 object Build extends sbt.Build {
   import Dependencies._
 
-  lazy val myProject = Project(
-    "spray-template",
-    file("."),
-    settings = basicSettings ++ WebPlugin.webSettings ++ Seq(
+  lazy val myProject = Project("spray-template", file("."))
+    .settings(WebPlugin.webSettings: _*)
+    .settings(
+      organization  := "com.example",
+      version       := "0.8.0",
+      scalaVersion  := "2.9.1",
+      scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
+      resolvers     ++= Dependencies.resolutionRepos,
       libraryDependencies ++= Seq(
         Compile.akkaActor,
         Compile.sprayServer,
@@ -19,15 +23,6 @@ object Build extends sbt.Build {
         Container.logback
       )
     )
-  )
-
-  lazy val basicSettings = Defaults.defaultSettings ++ Seq(
-    organization  := "com.example",
-    version       := "0.8.0-RC2",
-    scalaVersion  := "2.9.1",
-    scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
-    resolvers     ++= Dependencies.resolutionRepos
-  )
 }
 
 object Dependencies {
@@ -38,7 +33,7 @@ object Dependencies {
 
   object V {
     val akka    = "1.2"
-    val spray   = "0.8.0-RC2"
+    val spray   = "0.8.0"
     val specs2  = "1.6.1"
     val jetty   = "8.0.3.v20111011"
     val slf4j   = "1.6.1"
