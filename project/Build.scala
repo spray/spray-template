@@ -1,12 +1,12 @@
 import sbt._
 import Keys._
-import cc.spray.HRPlugin._
+import cc.spray.HotReloadPlugin._
 
 object Build extends sbt.Build {
   import Dependencies._
 
   lazy val myProject = Project("spray-template", file("."))
-    .settings(HotReload.hotReloadSettings: _*)
+    .settings(HotReload.settings: _*)
     .settings(
       organization  := "com.example",
       version       := "0.9.0-SNAPSHOT",
