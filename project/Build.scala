@@ -1,12 +1,12 @@
 import sbt._
 import Keys._
-import com.github.siasia.WebPlugin
+import cc.spray.HRPlugin._
 
 object Build extends sbt.Build {
   import Dependencies._
 
   lazy val myProject = Project("spray-template", file("."))
-    .settings(WebPlugin.webSettings: _*)
+    .settings(HotReload.hotReloadSettings: _*)
     .settings(
       organization  := "com.example",
       version       := "0.9.0-SNAPSHOT",
@@ -15,9 +15,9 @@ object Build extends sbt.Build {
       resolvers     ++= Dependencies.resolutionRepos,
       libraryDependencies ++= Seq(
         Compile.akkaActor,
+        Compile.sprayCan,
         Compile.sprayServer,
         Test.specs2,
-        Container.jettyWebApp,
         Container.akkaSlf4j,
         Container.slf4j,
         Container.logback
@@ -32,17 +32,18 @@ object Dependencies {
   )
 
   object V {
-    val akka    = "1.3-RC4"
-    val spray   = "0.9.0-SNAPSHOT"
-    val specs2  = "1.6.1"
-    val jetty   = "8.0.4.v20111024"
-    val slf4j   = "1.6.1"
-    val logback = "0.9.29"
+    val akka     = "1.3-RC4"
+    val sprayCan = "0.9.2-SNAPSHOT"
+    val spray    = "0.9.0-SNAPSHOT"
+    val specs2   = "1.6.1"
+    val slf4j    = "1.6.1"
+    val logback  = "0.9.29"
   }
 
   object Compile {
-    val akkaActor   = "se.scalablesolutions.akka" %  "akka-actor"      % V.akka    % "compile"
-    val sprayServer = "cc.spray"                  %  "spray-server"    % V.spray   % "compile"
+    val akkaActor   = "se.scalablesolutions.akka" %  "akka-actor"      % V.akka     % "compile"
+    val sprayCan    = "cc.spray.can"              %  "spray-can"       % V.sprayCan % "compile"
+    val sprayServer = "cc.spray"                  %  "spray-server"    % V.spray    % "compile"
   }
 
   object Test {
@@ -50,7 +51,6 @@ object Dependencies {
   }
 
   object Container {
-    val jettyWebApp = "org.eclipse.jetty"         %  "jetty-webapp"    % V.jetty   % "container"
     val akkaSlf4j   = "se.scalablesolutions.akka" %  "akka-slf4j"      % V.akka
     val slf4j       = "org.slf4j"                 %  "slf4j-api"       % V.slf4j
     val logback     = "ch.qos.logback"            %  "logback-classic" % V.logback
