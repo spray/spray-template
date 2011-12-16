@@ -1,1 +1,1 @@
-addSbtPlugin("cc.spray" % "sbt-hot-reload" % "0.5.0")
+addSbtPlugin("cc.spray" % "sbt-revolver" % "0.5.0")
