@@ -1,12 +1,16 @@
 import sbt._
+import com.github.siasia._
+import WebPlugin._
+import PluginKeys._
 import Keys._
-import com.github.siasia.WebPlugin
 
 object Build extends sbt.Build {
   import Dependencies._
 
+
   lazy val myProject = Project("spray-template", file("."))
     .settings(WebPlugin.webSettings: _*)
+    .settings(port in config("container")  := 8080)
     .settings(
       organization  := "com.example",
       version       := "0.9.0-SNAPSHOT",
@@ -23,6 +27,7 @@ object Build extends sbt.Build {
         Container.logback
       )
     )
+    
 }
 
 object Dependencies {
