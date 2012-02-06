@@ -9,7 +9,7 @@ object Build extends sbt.Build {
     .settings(Revolver.settings: _*)
     .settings(
       organization  := "com.example",
-      version       := "0.9.0-SNAPSHOT",
+      version       := "0.9.0-RC1",
       scalaVersion  := "2.9.1",
       scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
       resolvers     ++= Dependencies.resolutionRepos,
@@ -27,22 +27,24 @@ object Build extends sbt.Build {
 
 object Dependencies {
   val resolutionRepos = Seq(
-    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-    ScalaToolsSnapshots
+    ScalaToolsSnapshots,
+    "Typesafe repo" at "http://repo.typesafe.com/typesafe/releases/",
+    "spray repo" at "http://repo.spray.cc/"
   )
 
   object V {
-    val akka     = "1.3-RC4"
-    val sprayCan = "0.9.2-SNAPSHOT"
-    val spray    = "0.9.0-SNAPSHOT"
-    val specs2   = "1.6.1"
-    val slf4j    = "1.6.1"
-    val logback  = "0.9.29"
+    val akka     = "1.3"
+    val spray    = "0.9.0-RC1"
+    val sprayCan = "0.9.2"
+    val specs2   = "1.7.1"
+    val jetty    = "8.1.0.v20120127"
+    val slf4j    = "1.6.4"
+    val logback  = "1.0.0"
   }
 
   object Compile {
     val akkaActor   = "se.scalablesolutions.akka" %  "akka-actor"      % V.akka     % "compile"
-    val sprayCan    = "cc.spray.can"              %  "spray-can"       % V.sprayCan % "compile"
+    val sprayCan    = "cc.spray"                  %  "spray-can"       % V.sprayCan % "compile"
     val sprayServer = "cc.spray"                  %  "spray-server"    % V.spray    % "compile"
   }
 
