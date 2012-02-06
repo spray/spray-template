@@ -1,7 +1,7 @@
 ## _spray_ Template Project
 
 This projects provides a starting point for your own _spray-server_ endeavors.
-The branch you are currently looking at is targeted at **_spray_ 0.8.0**.
+The branch you are currently looking at is targeted at **_spray_ 0.9.0-RC1**.
 
 Boot strap your application by following these steps:
 

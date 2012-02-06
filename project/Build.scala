@@ -13,7 +13,7 @@ object Build extends sbt.Build {
     .settings(port in config("container")  := 8080)
     .settings(
       organization  := "com.example",
-      version       := "0.9.0-SNAPSHOT",
+      version       := "0.9.0-RC1",
       scalaVersion  := "2.9.1",
       scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
       resolvers     ++= Dependencies.resolutionRepos,
@@ -32,17 +32,18 @@ object Build extends sbt.Build {
 
 object Dependencies {
   val resolutionRepos = Seq(
-    "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-    ScalaToolsSnapshots
+    ScalaToolsSnapshots,
+    "Typesafe repo" at "http://repo.typesafe.com/typesafe/releases/",
+    "spray repo" at "http://repo.spray.cc/"
   )
 
   object V {
-    val akka    = "1.3-RC4"
-    val spray   = "0.9.0-SNAPSHOT"
-    val specs2  = "1.6.1"
-    val jetty   = "8.0.4.v20111024"
-    val slf4j   = "1.6.1"
-    val logback = "0.9.29"
+    val akka    = "1.3"
+    val spray   = "0.9.0-RC1"
+    val specs2  = "1.7.1"
+    val jetty   = "8.1.0.v20120127"
+    val slf4j   = "1.6.4"
+    val logback = "1.0.0"
   }
 
   object Compile {
