@@ -1,7 +1,7 @@
 ## _spray_ Template Project
 
 This projects provides a starting point for your own _spray-server_ on _spray-can_ endeavors.
-The branch you are currently looking at is targeted at **_spray_ 0.9.0-RC1**.
+The branch you are currently looking at is targeted at **_spray_ 0.9.0**.
 
 Boot strap your application by following these steps:
 
@@ -23,13 +23,17 @@ Boot strap your application by following these steps:
 
 5. Start the application:
 
-        > run
+        > re-start
 
 6. Browse to http://localhost:8080/
 
-7. Learn more at http://www.spray.cc/
+7. Start the application:
 
-8. Start hacking on `src/main/scala/com/example/HelloService.scala`
+        > re-stop
+
+8. Learn more at http://www.spray.cc/
+
+9. Start hacking on `src/main/scala/com/example/HelloService.scala`
 
 
 Apart from the Scala sources in the `src/main/scala` tree the following non-Scala configuration files are important:
