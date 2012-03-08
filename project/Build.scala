@@ -1,15 +1,18 @@
 import sbt._
+import com.github.siasia._
+import WebPlugin._
+import PluginKeys._
 import Keys._
-import com.github.siasia.WebPlugin
 
 object Build extends sbt.Build {
   import Dependencies._
 
   lazy val myProject = Project("spray-template", file("."))
     .settings(WebPlugin.webSettings: _*)
+    .settings(port in config("container") := 8080)
     .settings(
       organization  := "com.example",
-      version       := "0.8.0",
+      version       := "0.9.0",
       scalaVersion  := "2.9.1",
       scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
       resolvers     ++= Dependencies.resolutionRepos,
@@ -27,17 +30,18 @@ object Build extends sbt.Build {
 
 object Dependencies {
   val resolutionRepos = Seq(
-    "Akka Repository" at "http://akka.io/repository/",
-    ScalaToolsSnapshots
+    ScalaToolsSnapshots,
+    "Typesafe repo" at "http://repo.typesafe.com/typesafe/releases/",
+    "spray repo" at "http://repo.spray.cc/"
   )
 
   object V {
-    val akka    = "1.2"
-    val spray   = "0.8.0"
-    val specs2  = "1.6.1"
-    val jetty   = "8.0.3.v20111011"
-    val slf4j   = "1.6.1"
-    val logback = "0.9.29"
+    val akka    = "1.3.1"
+    val spray   = "0.9.0"
+    val specs2  = "1.7.1"
+    val jetty   = "8.1.0.v20120127"
+    val slf4j   = "1.6.4"
+    val logback = "1.0.0"
   }
 
   object Compile {

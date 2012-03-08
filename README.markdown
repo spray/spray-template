@@ -1,9 +1,22 @@
 ## _spray_ Template Project
 
 This projects provides a starting point for your own _spray-server_ endeavors.
-The branch you are currently looking at is targeted at **_spray_ 0.8.0**.
+There are two branches:
 
-Boot strap your application by following these steps:
+* The `master` branch provides a template for a _spray on Jetty_ application.
+* The `spray-can` branch provides a template for a _spray on spray-can_ application.
+
+You are currently on the `master` branch.
+The template application here uses the following dependencies:
+
+- Scala 2.9.1
+- Akka 1.3.1
+- _spray-server_ 0.9.0
+- Jetty 8.1.0
+- SBT 0.11.2
+
+
+Follow these steps to get started:
 
 1. Git-clone this repository.
 
@@ -13,7 +26,7 @@ Boot strap your application by following these steps:
 
         $ cd my-project
 
-3. Launch [SBT] (SBT 0.11):
+3. Launch [SBT]:
 
         $ sbt
 
@@ -37,12 +50,6 @@ Apart from the Scala sources in the `src/main/scala` tree the following non-Scal
 * `src/main/resources/akka.conf`, the combined Akka and _spray_ configuration file 
 * `src/main/resources/logback.xml`, the config file for the [SLF4J] logging backend "logback" (not required but recommended)
 * `src/main/webapp/WEB-INF/web.xml`, the config file for the Jetty instance used by SBTs web plugin
-
-If you'd like to deploy your _spray_ application in Akkas microkernel you can use the config files in the `config`
-directory as a starting point, namely:
-
-* `config/akka.conf`, the combined Akka and _spray_ configuration file for microkernel deployments  
-* `config/microkernel-server.xml`, the config file for the Akka microkernel-internal Jetty instance  
 
 
 [SBT]: https://github.com/harrah/xsbt/wiki
