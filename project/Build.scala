@@ -7,13 +7,12 @@ import Keys._
 object Build extends sbt.Build {
   import Dependencies._
 
-
   lazy val myProject = Project("spray-template", file("."))
     .settings(WebPlugin.webSettings: _*)
     .settings(port in config("container")  := 8080)
     .settings(
       organization  := "com.example",
-      version       := "0.9.0-RC1",
+      version       := "0.9.0",
       scalaVersion  := "2.9.1",
       scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
       resolvers     ++= Dependencies.resolutionRepos,
@@ -27,7 +26,6 @@ object Build extends sbt.Build {
         Container.logback
       )
     )
-    
 }
 
 object Dependencies {
@@ -38,8 +36,8 @@ object Dependencies {
   )
 
   object V {
-    val akka    = "1.3"
-    val spray   = "0.9.0-RC1"
+    val akka    = "1.3.1"
+    val spray   = "0.9.0"
     val specs2  = "1.7.1"
     val jetty   = "8.1.0.v20120127"
     val slf4j   = "1.6.4"
