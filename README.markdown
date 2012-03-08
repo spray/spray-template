@@ -1,7 +1,15 @@
 ## _spray_ Template Project
 
 This projects provides a starting point for your own _spray-server_ on _spray-can_ endeavors.
-The branch you are currently looking at is targeted at **_spray_ 0.9.0**.
+The branch you are currently looking at is targeted at
+
+- SBT 0.11.2
+- Scala 2.9.1
+- Akka 1.3.1
+- _spray-server_ 0.9.0
+- _spray-can_ 0.9.3
+- sbt-revolver 0.6.0
+
 
 Boot strap your application by following these steps:
 
@@ -13,7 +21,7 @@ Boot strap your application by following these steps:
 
         $ cd my-project
 
-3. Launch [SBT] (SBT 0.11):
+3. Launch [SBT]:
 
         $ sbt
 
