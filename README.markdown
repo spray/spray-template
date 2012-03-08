@@ -1,17 +1,23 @@
 ## _spray_ Template Project
 
-This projects provides a starting point for your own _spray-server_ on _spray-can_ endeavors.
-The branch you are currently looking at is targeted at
+This projects provides a starting point for your own _spray-server_ endeavors.
+There are two branches:
 
-- SBT 0.11.2
+* The `master` branch provides a template for a _spray on Jetty_ application.
+* The `spray-can` branch provides a template for a _spray on spray-can_ application.
+
+You are currently on the `spray-can` branch.
+The template application here uses the following dependencies:
+
 - Scala 2.9.1
 - Akka 1.3.1
 - _spray-server_ 0.9.0
 - _spray-can_ 0.9.3
+- SBT 0.11.2
 - sbt-revolver 0.6.0
 
 
-Boot strap your application by following these steps:
+Follow these steps to get started:
 
 1. Git-clone this repository.
 
