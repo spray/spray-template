@@ -13,7 +13,7 @@ The template application here uses the following dependencies:
 - Akka 1.3.1
 - _spray-server_ 0.9.0
 - Jetty 8.1.0
-- SBT 0.11.2
+- SBT 0.11.3
 
 
 Follow these steps to get started:
