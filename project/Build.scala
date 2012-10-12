@@ -32,7 +32,7 @@ object Dependencies {
   val resolutionRepos = Seq(
     ScalaToolsSnapshots,
     "Typesafe repo" at "http://repo.typesafe.com/typesafe/releases/",
-    "spray repo" at "http://repo.spray.cc/"
+    "spray repo" at "http://repo.spray.io/"
   )
 
   object V {
