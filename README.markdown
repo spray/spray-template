@@ -1,21 +1,12 @@
 ## _spray_ Template Project
 
-This projects provides a starting point for your own _spray-server_ endeavors.
+This projects provides a starting point for your own _spray-routing_ endeavors.
 There are two branches:
 
-* The `master` branch provides a template for a _spray on Jetty_ application.
-* The `spray-can` branch provides a template for a _spray on spray-can_ application.
+* The `on_spray-can` branch provides a template for a _spray-routing_ on _spray-can_ application.
+* The `on_jetty` branch provides a template for a _spray-routing_ on _Jetty_ application.
 
-You are currently on the `spray-can` branch.
-The template application here uses the following dependencies:
-
-- Scala 2.9.1
-- Akka 1.3.1
-- _spray-server_ 0.9.0
-- _spray-can_ 0.9.3
-- SBT 0.11.2
-- sbt-revolver 0.6.0
-
+You are currently on the `on_spray-can` branch.
 
 Follow these steps to get started:
 
@@ -27,7 +18,7 @@ Follow these steps to get started:
 
         $ cd my-project
 
-3. Launch [SBT]:
+3. Launch SBT:
 
         $ sbt
 
@@ -45,15 +36,6 @@ Follow these steps to get started:
 
         > re-stop
 
-8. Learn more at http://www.spray.cc/
+8. Learn more at http://www.spray.io/
 
-9. Start hacking on `src/main/scala/com/example/HelloService.scala`
-
-
-Apart from the Scala sources in the `src/main/scala` tree the following non-Scala configuration files are important:
-
-* `src/main/resources/akka.conf`, the combined Akka and _spray_ configuration file 
-* `src/main/resources/logback.xml`, the config file for the [SLF4J] logging backend "logback" (not required but recommended)
-
-  [SBT]: https://github.com/harrah/xsbt/wiki
-  [SLF4J]: http://www.slf4j.org
+9. Start hacking on `src/main/scala/com/example/MyService.scala`

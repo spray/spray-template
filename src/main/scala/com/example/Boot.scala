@@ -1,31 +1,35 @@
 package com.example
 
-import org.slf4j.LoggerFactory
-import akka.config.Supervision._
-import akka.actor.{Supervisor, Actor}
-import cc.spray.{SprayCanRootService, HttpService}
-import cc.spray.can.HttpServer
+import akka.actor.{Props, ActorSystem}
+import spray.can.server.HttpServer
+import spray.io._
+
 
 object Boot extends App {
+  // we need an ActorSystem to host our application in
+  val system = ActorSystem("demo")
 
-  LoggerFactory.getLogger(getClass) // initialize SLF4J early
+  // every spray-can HttpServer (and HttpClient) needs an IOBridge for low-level network IO
+  // (but several servers and/or clients can share one)
+  val ioBridge = new IOBridge(system).start()
 
-  val mainModule = new HelloService {
-    // bake your module cake here
-  }
+  // create and start our service actor
+  val service = system.actorOf(Props[MyServiceActor], "demo-service")
 
-  val httpService    = Actor.actorOf(new HttpService(mainModule.helloService))
-  val rootService    = Actor.actorOf(new SprayCanRootService(httpService))
-  val sprayCanServer = Actor.actorOf(new HttpServer())
-
-  Supervisor(
-    SupervisorConfig(
-      OneForOneStrategy(List(classOf[Exception]), 3, 100),
-      List(
-        Supervise(httpService, Permanent),
-        Supervise(rootService, Permanent),
-        Supervise(sprayCanServer, Permanent)
-      )
-    )
+  // create and start the spray-can HttpServer, telling it that
+  // we want requests to be handled by our singleton service actor
+  val httpServer = system.actorOf(
+    Props(new HttpServer(ioBridge, SingletonHandler(service))),
+    name = "http-server"
   )
+
+  // a running HttpServer can be bound, unbound and rebound
+  // initially to need to tell it where to bind to
+  httpServer ! HttpServer.Bind("localhost", 8080)
+
+  // finally we drop the main thread but hook the shutdown of
+  // our IOBridge into the shutdown of the applications ActorSystem
+  system.registerOnTermination {
+    ioBridge.stop()
+  }
 }
