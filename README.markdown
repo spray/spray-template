@@ -6,7 +6,7 @@ There are two branches:
 * The `on_spray-can` branch provides a template for a _spray-routing_ on _spray-can_ application.
 * The `on_jetty` branch provides a template for a _spray-routing_ on _Jetty_ application.
 
-You are currently on the `on_spray-can` branch.
+You are currently on the `on_jetty` branch.
 
 Follow these steps to get started:
 
@@ -28,13 +28,13 @@ Follow these steps to get started:
 
 5. Start the application:
 
-        > re-start
+        > container:start
 
 6. Browse to http://localhost:8080/
 
 7. Start the application:
 
-        > re-stop
+        > container:stop
 
 8. Learn more at http://www.spray.io/
 
