@@ -8,6 +8,8 @@ scalacOptions := Seq("-Ydependent-method-types", "-unchecked", "-deprecation", "
 
 resolvers += "spray repo" at "http://repo.spray.io/"
 
+resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+
 libraryDependencies ++= Seq(
   "io.spray"            %   "spray-can"     % "1.0-M3",
   "io.spray"            %   "spray-routing" % "1.0-M3",
