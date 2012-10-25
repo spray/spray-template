@@ -31,7 +31,7 @@ trait MyService extends HttpService {
           complete {
             <html>
               <body>
-                <h1>Say hello to <i>spray-routing</i> on <i>spray-can</i>!</h1>
+                <h1>Say hello to <i>spray-routing</i> on <i>Jetty</i>!</h1>
               </body>
             </html>
           }
