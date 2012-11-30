@@ -1,35 +1,15 @@
 package com.example
 
-import akka.actor.{Props, ActorSystem}
-import spray.can.server.HttpServer
-import spray.io._
+import spray.can.server.SprayCanHttpServerApp
+import akka.actor.Props
 
 
-object Boot extends App {
-  // we need an ActorSystem to host our application in
-  val system = ActorSystem("demo")
-
-  // every spray-can HttpServer (and HttpClient) needs an IOBridge for low-level network IO
-  // (but several servers and/or clients can share one)
-  val ioBridge = new IOBridge(system).start()
+object Boot extends App with SprayCanHttpServerApp {
 
   // create and start our service actor
-  val service = system.actorOf(Props[MyServiceActor], "demo-service")
+  val service = system.actorOf(Props[MyServiceActor], "my-service")
 
-  // create and start the spray-can HttpServer, telling it that
-  // we want requests to be handled by our singleton service actor
-  val httpServer = system.actorOf(
-    Props(new HttpServer(ioBridge, SingletonHandler(service))),
-    name = "http-server"
-  )
+  // create a new HttpServer using our handler tell it where to bind to
+  newHttpServer(service) ! Bind(interface = "localhost", port = 8080)
 
-  // a running HttpServer can be bound, unbound and rebound
-  // initially to need to tell it where to bind to
-  httpServer ! HttpServer.Bind("localhost", 8080)
-
-  // finally we drop the main thread but hook the shutdown of
-  // our IOBridge into the shutdown of the applications ActorSystem
-  system.registerOnTermination {
-    ioBridge.stop()
-  }
 }
