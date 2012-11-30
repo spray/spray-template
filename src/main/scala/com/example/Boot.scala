@@ -15,8 +15,4 @@ class Boot extends WebBoot {
   // the service actor replies to incoming HttpRequests
   val serviceActor = system.actorOf(Props[MyServiceActor])
 
-  system.registerOnTermination {
-    // put additional cleanup code here
-    system.log.info("Application shut down")
-  }
 }
