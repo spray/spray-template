@@ -1,5 +1,3 @@
-seq(Revolver.settings: _*)
-
 organization  := "com.example"
 
 version       := "0.1"
