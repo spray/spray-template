@@ -1,1 +1,1 @@
-addSbtPlugin("cc.spray" % "sbt-revolver" % "0.6.1")
+addSbtPlugin("cc.spray" % "sbt-revolver" % "0.6.2")
