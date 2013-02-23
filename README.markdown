@@ -34,7 +34,7 @@ Follow these steps to get started:
 
 6. Browse to http://localhost:8080/
 
-7. Start the application:
+7. Stop the application:
 
         > re-stop
 
