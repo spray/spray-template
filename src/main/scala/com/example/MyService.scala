@@ -27,12 +27,15 @@ trait MyService extends HttpService {
     path("") {
       get {
         respondWithMediaType(`text/html`) { // XML is marshalled to `text/xml` by default, so we simply override here
-          complete {
-            <html>
-              <body>
-                <h1>Say hello to <i>spray-routing</i> on <i>Jetty</i>!</h1>
-              </body>
-            </html>
+          extract(_.request.headers) { headers =>
+            complete {
+              <html>
+                <body>
+                  <h1>Say hello to <i>spray-routing</i> on <i>Jetty</i>!</h1>
+                  { headers.map(h => <p>{h.getClass.getName}: {h}</p>) }
+                </body>
+              </html>
+            }
           }
         }
       }
