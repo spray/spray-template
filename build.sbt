@@ -2,7 +2,7 @@ organization  := "com.example"
 
 version       := "0.1"
 
-scalaVersion  := "2.10.2"
+scalaVersion  := "2.10.3"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
@@ -10,15 +10,19 @@ resolvers ++= Seq(
   "spray repo" at "http://repo.spray.io/"
 )
 
-libraryDependencies ++= Seq(
-  "io.spray"                %   "spray-servlet" % "1.1-M8",
-  "io.spray"                %   "spray-routing" % "1.1-M8",
-  "io.spray"                %   "spray-testkit" % "1.1-M8",
-  "org.eclipse.jetty"       %   "jetty-webapp"  % "8.1.10.v20130312"    % "container",
-  "org.eclipse.jetty.orbit" %   "javax.servlet" % "3.0.0.v201112011016" % "container"  artifacts Artifact("javax.servlet", "jar", "jar"),
-  "com.typesafe.akka"       %%  "akka-actor"    % "2.1.4",
-  "com.typesafe.akka"       %%  "akka-testkit"  % "2.1.4",
-  "org.specs2"              %%  "specs2"        % "1.14" % "test"
-)
+libraryDependencies ++= {
+  val akkaV = "2.1.4"
+  val sprayV = "1.1-RC1"
+  Seq(
+    "io.spray"            %   "spray-servlet" % sprayV,
+    "io.spray"            %   "spray-routing" % sprayV,
+    "io.spray"            %   "spray-testkit" % sprayV,
+    "org.eclipse.jetty"       %   "jetty-webapp"  % "8.1.10.v20130312"    % "container",
+    "org.eclipse.jetty.orbit" %   "javax.servlet" % "3.0.0.v201112011016" % "container"  artifacts Artifact("javax.servlet", "jar", "jar"),
+    "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
+    "com.typesafe.akka"   %%  "akka-testkit"  % akkaV,
+    "org.specs2"          %%  "specs2"        % "2.2.3" % "test"
+  )
+}
 
 seq(webSettings: _*)
