@@ -1,6 +1,6 @@
 organization  := "com.example"
 
-version       := "0.1"
+version       := "0.2"
 
 scalaVersion  := "2.10.3"
 
@@ -11,8 +11,8 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaV = "2.1.4"
-  val sprayV = "1.1.0"
+  val akkaV = "2.2.1"
+  val sprayV = "1.2.0"
   Seq(
     "io.spray"            %   "spray-can"     % sprayV,
     "io.spray"            %   "spray-routing" % sprayV,
