@@ -6,3 +6,4 @@ lib_managed/
 src_managed/
 test-output/
 *.iml
+.classpath_nb
