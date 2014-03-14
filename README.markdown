@@ -36,7 +36,7 @@ Follow these steps to get started:
 
         > container:start
 
-6. Browse to http://localhost:8080/
+6. Browse to [http://localhost:8080](http://localhost:8080/)
 
 7. Stop the application:
 
