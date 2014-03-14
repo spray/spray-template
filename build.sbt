@@ -13,7 +13,7 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val akkaV = "2.0.5"
-  val sprayV = "1.0.0"
+  val sprayV = "1.0.1"
   Seq(
     "io.spray"            %   "spray-can"     % sprayV,
     "io.spray"            %   "spray-routing" % sprayV,
