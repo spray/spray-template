@@ -6,10 +6,6 @@ scalaVersion  := "2.10.3"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
-resolvers ++= Seq(
-  "spray repo" at "http://repo.spray.io/"
-)
-
 libraryDependencies ++= {
   val akkaV = "2.3.0"
   val sprayV = "1.3.1"
