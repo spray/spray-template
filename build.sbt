@@ -7,7 +7,6 @@ scalaVersion  := "2.9.3"
 scalacOptions := Seq("-Ydependent-method-types", "-unchecked", "-deprecation", "-encoding", "utf8")
 
 resolvers ++= Seq(
-  "spray repo" at "http://repo.spray.io/",
   "akka repo" at "http://repo.akka.io/releases/"
 )
 
@@ -24,4 +23,4 @@ libraryDependencies ++= {
   )
 }
 
-seq(Revolver.settings: _*)
+Revolver.settings
