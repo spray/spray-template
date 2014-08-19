@@ -7,3 +7,14 @@ src_managed/
 test-output/
 *.iml
 .classpath_nb
+tmp
+.history
+dist
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+/project/*-shim.sbt
+/activator-sbt-atmos-akka-shim.sbt
+/~*
