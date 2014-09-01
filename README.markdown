@@ -14,7 +14,7 @@ There are 8 branches, providing templates for _spray-routing_ on
 * _Jetty_, Scala 2.10 + Akka 2.3 + spray 1.3 (the `on_jetty_1.3` branch)
 * _Jetty_, Scala 2.11 + Akka 2.3 + spray 1.3 (the `on_jetty_1.3_scala-2.11` branch)
 
-You are currently on the `on_jetty_1.3` branch.
+You are currently on the `on_jetty_1.3_scala-2.11` branch.
 
 Follow these steps to get started:
 
