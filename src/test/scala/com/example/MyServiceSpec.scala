@@ -16,6 +16,12 @@ class MyServiceSpec extends Specification with Specs2RouteTest with MyService {
       }
     }
 
+    "return a greeting for GET requests to the root path" in {
+      Get("/predict?q=abc") ~> myRoute ~> check {
+        responseAs[String] must contain("prediction")
+      }
+    }
+    
     "leave GET requests to other paths unhandled" in {
       Get("/kermit") ~> myRoute ~> check {
         handled must beFalse
